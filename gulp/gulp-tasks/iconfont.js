@@ -17,16 +17,17 @@ module.exports = function (gulp, plugin, config) {
 				};
 
 				// Build the font sass template
-				gulp.src(config.paths.dev.iconFont + "/sass/_icon.template.scss")
+				gulp.src(config.paths.dev.iconCss + "/_icon.template.scss")
 	        .pipe(plugin.consolidate('lodash', options))
 					.pipe(plugin.rename("_icon.compiled.scss"))
-	        .pipe(gulp.dest(config.paths.dev.css));
+	        .pipe(gulp.dest(config.paths.dev.sass));
 
 				// Build the Font html template
 	      gulp.src(config.paths.dev.fontTmpl + "/icon-demo.html")
-	        .pipe(config.plugin.consolidate('lodash', options))
+	        .pipe(plugin.consolidate('lodash', options))
 	        .pipe(gulp.dest(config.paths.dist.fontDemo));
 			})
-			.pipe(gulp.dest(config.paths.dist.iconFont));
+			.pipe(gulp.dest(config.paths.dist.iconFont))
+			.pipe(gulp.dest(config.paths.dist.fontDemo + "/assets/font/icons/"));
 		}
 	};

@@ -2,65 +2,24 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Vodacons Demo</title>
-	<meta name="description" content="Vodacons">
+	<title>Icons Demo</title>
+	<meta name="description" content="Icons">
 	<meta name="viewport" content="width=device-width">
   <link href="assets/css/<%= fontName %>.css" rel="stylesheet">
 </head>
 <body>
   <div class="frame">
     	<div id="top">
-	    	<h1>Vodacons</h1>
-            <fieldset>
-            <span class="size">
-            	<label>Icon size:</label>
-               <select class="font-sizer">
-       		        <option value="spl-i-size-xs">16</option>
-    	            <option value="spl-i-size-s">24</option>
-	                <option value="spl-i-size-m" selected="selected">32</option>
-                   <option value="spl-i-size-l">48</option>
-                 	<option value="spl-i-size-xl">64</option>
-									<option value="spl-i-size-xxl">128</option>
-               </select>
-               px
-            </span>
-            <span class="colour">
-            	<label>Colours:</label>
-               <select class="colour-combo">
-       		        <option value="lightonwhite" selected="selected">#666 on white</option>
-    	            <option value="darkonwhite">#333 on white</option>
-	                <option value="whiteongray">White on #333</option>
-                  <option value="darkongray">#333 on #F4F4F4</option>
-               </select>
-             </span>
-          </fieldset>
-        </div>
+	    	<h1><%= fontName %></h1>
+      </div>
 
       <% _.each(glyphs, function(glyph) { %>
         <div class="glyph">
-          <span class="<%= className %>-<%= glyph.name %> spl-i-size-m"></span>
+          <span class="<%= className %> <%= className %>-<%= glyph.name %> icon-m"></span>
           <span class="mls"><%= glyph.name %></span>
           <span class="mls"><%= glyph.codepoint.toString(16).toUpperCase() %></span>
         </div>
       <% }); %>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function(){
-
-        $('.font-sizer').on('change', function(){
-          var newsize = $(this).val();
-          var current = $('.spl-icon').attr("class").match(/spl-i-size-[\w-]*\b/);
-          $('.spl-icon').removeClass('' + current + '').addClass(newsize);
-        });
-
-
-        $('.colour-combo').on('change', function(){
-          var colours = $(this).val();
-          $('body').removeClass().addClass(colours);
-        });
-
-      });
-    </script>
   </body>
 </html>

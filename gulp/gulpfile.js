@@ -14,24 +14,23 @@ var config = {
 	paths: {
 		dev:   {
 			js:     	 [devRoot + 'assets/js/vendor/**/*.js', devRoot + 'assets/js/site/app.js'],
-			sass:   		devRoot + 'assets/sass/**/*.scss',
+			sass:   		devRoot + 'assets/sass',
 			css:    		devRoot + 'assets/css',
 			img: 				devRoot + 'assets/img',
 			fonts:  	 [devRoot + 'assets/font/src/**/*.otf', devRoot + 'assets/font/src/**/*.ttf'],
 			iconFont: 	devRoot + 'assets/font/icons/**/*.svg',
-			iconCss: 		devRoot + "assets/font/sass"
-			fontTmpl: 	devRoot + 'assets/font/template'
+			iconCss: 		devRoot + "assets/font/sass",
+			fontTmpl: 	devRoot + 'assets/font/template',
 			templates: 	'../craft/templates' // If using a craft CMS
 		},
 		dist: {
-			root:   		'../build', // Go to build folder outside of gulp folder
 			assets: 		distRoot + '/assets/',
 			js:     		distRoot + '/assets/js',
 			css:    		distRoot + '/assets/css',
 			img: 				distRoot + '/assets/img',
 			fonts:  		distRoot + '/assets/font',
 			iconFont: 	distRoot + '/assets/font/icons/',
-			fontDemo:   distRoot + '/demo',
+			fontDemo:   distRoot + '/demo'
 		}
 	}
 };
@@ -48,7 +47,7 @@ gulp.task('images', getTask('images'));
 // FONTS
 gulp.task('font', getTask('font'));
 gulp.task('iconfont', getTask('iconfont'));
-gulp.task('iconcss', getTask('icondemocss'));
+gulp.task('icondemocss', getTask('icondemocss'));
 gulp.task('iconbuild', ["iconfont", "icondemocss"]);
 
 // BROWSER SYNC

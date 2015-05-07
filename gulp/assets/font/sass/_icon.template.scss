@@ -8,7 +8,7 @@ $icon-size: 32px;
 		url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
 }
 
-.spl-icon{
+.<%= className %>{
 	font-family: "<%= fontName %>";
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
@@ -22,12 +22,12 @@ $icon-size: 32px;
 	line-height:1em;
 	display:inline-block;
 
-	&.spl-i-size-xs {font-size:$icon-size*0.5;}
-	&.spl-i-size-s {font-size:$icon-size*0.75;}
-	&.spl-i-size-m {font-size:$icon-size;}
-	&.spl-i-size-l {font-size:$icon-size*1.5;}
-	&.spl-i-size-xl {font-size:$icon-size*2;}
-	&.spl-i-size-xxl {font-size:$icon-size*3;}
+	&.<%= className %>-xs {font-size:$icon-size*0.5;}
+	&.<%= className %>-s {font-size:$icon-size*0.75;}
+	&.<%= className %>-m {font-size:$icon-size;}
+	&.<%= className %>-l {font-size:$icon-size*1.5;}
+	&.<%= className %>-xl {font-size:$icon-size*2;}
+	&.<%= className %>-xxl {font-size:$icon-size*3;}
 }
 
 %icon {
@@ -58,7 +58,7 @@ $icon-size: 32px;
 <% }); %>
 
 
-<% _.each(glyphs, function(glyph) { %>.spl-i-<%= glyph.name %> {
+<% _.each(glyphs, function(glyph) { %>.<%= className %>-<%= glyph.name %> {
 	@include icon(<%= glyph.name %>);
 }
 <% }); %>

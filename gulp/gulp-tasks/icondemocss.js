@@ -6,9 +6,9 @@ module.exports = function (gulp, plugin, config) {
   		.pipe(plugin.sourcemaps.init())
   		.pipe(plugin.sass({errLogToConsole: true}))
   		.pipe(plugin.autoprefixer())
-  		.pipe(plugin.minifyCss())
+  		//.pipe(plugin.minifyCss())
   		.pipe(plugin.sourcemaps.write())
-      .pipe(plugin.concat("vodacons.css"))
-  		.pipe(gulp.dest(config.paths.dist.fontDemo + "/css/"));
+      .pipe(plugin.concat("icons.css"))
+  		.pipe(gulp.dest(config.paths.dist.fontDemo + "/assets/css/"));
     }
 };

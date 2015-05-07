@@ -1,0 +1,63 @@
+$icon-size: 32px;
+@font-face {
+	font-family: "icons";
+	src: url('../font/icons/icons.eot');
+	src: url('../font/icons/icons.eot?#iefix') format('eot'),
+		url('../font/icons/icons.woff') format('woff'),
+		url('../font/icons/icons.ttf') format('truetype'),
+		url('../font/icons/icons.svg#icons') format('svg');
+}
+
+.icon{
+	font-family: "icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	font-size:32px;
+	line-height:1em;
+	display:inline-block;
+
+	&.icon-xs {font-size:$icon-size*0.5;}
+	&.icon-s {font-size:$icon-size*0.75;}
+	&.icon-m {font-size:$icon-size;}
+	&.icon-l {font-size:$icon-size*1.5;}
+	&.icon-xl {font-size:$icon-size*2;}
+	&.icon-xxl {font-size:$icon-size*3;}
+}
+
+%icon {
+
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == test {
+		$char: "\E001";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before) {
+	&:#{$insert} {
+		@extend %icon;
+		content: icon-char($filename);
+	}
+}
+
+
+	@mixin icon-test{
+		content: icon-char(test);
+	}
+
+
+
+.icon-test {
+	@include icon(test);
+}

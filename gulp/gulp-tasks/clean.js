@@ -6,7 +6,8 @@ module.exports = function (gulp, plugins, config) {
 			config.paths.dist.js + "/**/*",
 			config.paths.dist.css + "/**/*",
 			config.paths.dist.fonts + "/**/*",
-			config.paths.dist.iconFont + "/**/*"
+			config.paths.dist.iconFont + "/**/*",
+			config.paths.dist.fontDemo + "/**"
 		], {force: true})
 	};
 };
