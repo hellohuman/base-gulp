@@ -1,0 +1,31 @@
+{
+  "name": "Human",
+  "version": "0.0.0",
+  "description": "Gulp build",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "James Cooke @ hellohuman.com.au",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp": "~3.8.11",
+    "gulp-sass": "~1.3.3",
+    "gulp-watch": "~4.2.2",
+    "gulp-minify-css": "~1.0.0",
+    "gulp-uglify": "~1.1.0",
+    "gulp-imagemin": "~2.2.1",
+    "gulp-concat": "~2.5.2",
+    "gulp-util": "~3.0.4",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-load-plugins": "~0.9.0",
+    "gulp-autoprefixer": "~2.1.0",
+    "browser-sync": "^2.5.2",
+    "gulp-order": "^1.1.1",
+    "gulp-iconfont": "~1.0.0",
+    "gulp-notify": "~2.2.0",
+    "gulp-fontgen": "~0.1.5",
+    "del": "~1.1.1",
+    "gulp-sassbeautify": "~0.1.0"
+  }
+}

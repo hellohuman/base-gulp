@@ -1,0 +1,64 @@
+$icon-size: 32px;
+@font-face {
+	font-family: "<%= fontName %>";
+	src: url('<%= fontPath %><%= fontName %>.eot');
+	src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+		url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+		url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+		url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+.spl-icon{
+	font-family: "<%= fontName %>";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	font-size:32px;
+	line-height:1em;
+	display:inline-block;
+
+	&.spl-i-size-xs {font-size:$icon-size*0.5;}
+	&.spl-i-size-s {font-size:$icon-size*0.75;}
+	&.spl-i-size-m {font-size:$icon-size;}
+	&.spl-i-size-l {font-size:$icon-size*1.5;}
+	&.spl-i-size-xl {font-size:$icon-size*2;}
+	&.spl-i-size-xxl {font-size:$icon-size*3;}
+}
+
+%icon {
+
+}
+
+@function icon-char($filename) {
+	$char: "";
+<% _.each(glyphs, function(glyph) { %>
+	@if $filename == <%= glyph.name %> {
+		$char: "\<%= glyph.codepoint.toString(16).toUpperCase() %>";
+	}<% }); %>
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before) {
+	&:#{$insert} {
+		@extend %icon;
+		content: icon-char($filename);
+	}
+}
+
+<% _.each(glyphs, function(glyph) { %>
+	@mixin icon-<%= glyph.name %>{
+		content: icon-char(<%= glyph.name %>);
+	}
+<% }); %>
+
+
+<% _.each(glyphs, function(glyph) { %>.spl-i-<%= glyph.name %> {
+	@include icon(<%= glyph.name %>);
+}
+<% }); %>
