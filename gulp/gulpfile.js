@@ -45,8 +45,13 @@ gulp.task('sassbeautify', getTask('sassbeautify'));
 gulp.task('images', getTask('images'));
 
 // FONTS
+
+// For the fonts build to work you will need certain packages:
+// - If you have homebrew run: brew install fontforge ttfautohint ttf2eot batik
 gulp.task('font', getTask('font'));
 gulp.task('iconfont', getTask('iconfont'));
+
+// Build the css for the demo html file, used for the icon list
 gulp.task('icondemocss', getTask('icondemocss'));
 gulp.task('iconbuild', ["iconfont", "icondemocss"]);
 
